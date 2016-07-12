@@ -49,12 +49,7 @@ namespace skadisteam.inventory
                     "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/51.0.2704.106 Safari/537.36");
                 client.DefaultRequestHeaders.TryAddWithoutValidation(
                     "Upgrade-Insecure-Requests", "1");
-
-                // : 
-                // : 
-                // : 
-                // : 
-                // : 
+                
                 client.DefaultRequestHeaders.Host = uri.Host;
 
                 response = client.GetAsync(path).Result;

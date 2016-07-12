@@ -243,3 +243,6 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+skadisteam.inventory.console.sln
+skadisteam.inventory.console/
