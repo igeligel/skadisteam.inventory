@@ -11,6 +11,9 @@ namespace skadisteam.inventory.Models.Json
         [JsonProperty(PropertyName = "more_start")]
         internal bool MoreStart { get; set; }
 
+        [JsonProperty(PropertyName = "rgAppInfo")]
+        internal bool AppInfo { get; set; }
+
         [JsonProperty(PropertyName = "rgCurrency")]
         internal List<object> Currencies { get; set; }
 
