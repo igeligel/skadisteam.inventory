@@ -3,10 +3,19 @@
   "title": "skadisteam.inventory",
   "description": "A .net core package for getting inventories by steam community.",
   "language": "en-US",
-  "authors": [ "Kevin Peters" ],
+  "authors": [
+    "Kevin Peters"
+  ],
   "packOptions": {
     "projectUrl": "https://github.com/igeligel/skadisteam.inventory",
-    "tags": [ "steam", "inventory", "csgo", "tf2", "core", "skadi" ],
+    "tags": [
+      "steam",
+      "inventory",
+      "csgo",
+      "tf2",
+      "core",
+      "skadi"
+    ],
     "licenseUrl": "",
     "iconUrl": "https://i.imgur.com/Jpd2xBl.png",
     "repository": {
@@ -15,7 +24,8 @@
     }
   },
   "dependencies": {
-    "NETStandard.Library": "1.6.0"
+    "NETStandard.Library": "1.6.0",
+    "Newtonsoft.Json": "9.0.1"
   },
   "frameworks": {
     "netstandard1.6": {
