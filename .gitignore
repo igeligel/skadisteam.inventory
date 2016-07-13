@@ -246,3 +246,7 @@ ModelManifest.xml
 
 skadisteam.inventory.console.sln
 skadisteam.inventory.console/
+
+#ProjectRider
+.idea.skadisteam.inventory.console
+.idea.skadisteam.inventory.console/
