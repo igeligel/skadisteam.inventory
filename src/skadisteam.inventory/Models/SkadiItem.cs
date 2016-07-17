@@ -12,6 +12,6 @@ namespace skadisteam.inventory.Models
         public int Position { get; set; }
         public string BackgroundColor { get; set; }
         public int Commodity { get; set; }
-        public List<ExtraDescription> 
+        public List<ExtraDescription> Description { get; set; }
     }
 }
