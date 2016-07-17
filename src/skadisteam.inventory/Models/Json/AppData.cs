@@ -2,7 +2,7 @@
 
 namespace skadisteam.inventory.Models.Json
 {
-    internal class AppData
+    public class AppData
     {
         [JsonProperty(PropertyName = "def_index")]
         internal string DefIndex { get; set; }
