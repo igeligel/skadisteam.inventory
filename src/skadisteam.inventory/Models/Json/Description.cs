@@ -45,7 +45,7 @@ namespace skadisteam.inventory.Models.Json
         internal string NameColor { get; set; }
 
         [JsonProperty(PropertyName = "tags")]
-        internal List<object> Tags { get; set; }
+        internal List<Tag> Tags { get; set; }
 
         [JsonProperty(PropertyName = "tradable")]
         internal int Tradable { get; set; }

@@ -2,7 +2,7 @@
 
 namespace skadisteam.inventory.Models.Json
 {
-    internal class Tag
+    public class Tag
     {
         [JsonProperty(PropertyName = "internal_name")]
         public string InternalName { get; set; }

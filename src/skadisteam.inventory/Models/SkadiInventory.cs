@@ -4,6 +4,6 @@ namespace skadisteam.inventory.Models
 {
     public class SkadiInventory
     {
-        public List<object> Items { get; set; }
+        public List<SkadiItem> Items { get; set; }
     }
 }

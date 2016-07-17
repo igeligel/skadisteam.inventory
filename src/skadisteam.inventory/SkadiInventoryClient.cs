@@ -8,9 +8,9 @@ using skadisteam.inventory.Models.Json;
 
 namespace skadisteam.inventory
 {
-    public class SkadiInventory
+    public class SkadiInventoryClient
     {
-        public static void LoadInventory(
+        public static SkadiInventory LoadInventory(
             SkadiLoadInventoryConfiguration skadiLoadInventory)
         {
             var path =
@@ -24,7 +24,8 @@ namespace skadisteam.inventory
             var responseBody = response.Content.ReadAsStringAsync().Result;
             var inventory =
                 JsonConvert.DeserializeObject<RootInventory>(responseBody);
-            Console.WriteLine(inventory.Success);
+            var skadiInventory = SkadiInventoryFactory.Create(inventory);
+            return skadiInventory;
         }
 
         public static void LoadPartnerInventory(long partnerCommunityId,

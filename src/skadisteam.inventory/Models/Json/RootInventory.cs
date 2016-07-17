@@ -21,7 +21,7 @@ namespace skadisteam.inventory.Models.Json
         internal Dictionary<string, Description> Descriptions { get; set; }
 
         [JsonProperty(PropertyName = "rgInventory")]
-        internal Dictionary<string, object> Inventory { get; set; }
+        internal Dictionary<string, Item> Inventory { get; set; }
 
         [JsonProperty(PropertyName = "success")]
         internal bool Success { get; set; }
