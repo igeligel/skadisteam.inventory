@@ -5,18 +5,18 @@ namespace skadisteam.inventory.Models.Json
     internal class Item
     {
         [JsonProperty(PropertyName = "id")]
-        public long Id { get; set; }
+        internal long Id { get; set; }
 
         [JsonProperty(PropertyName = "classid")]
-        public long ClassId { get; set; }
+        internal long ClassId { get; set; }
 
         [JsonProperty(PropertyName = "instanceid")]
-        public long InstanceId { get; set; }
+        internal long InstanceId { get; set; }
 
         [JsonProperty(PropertyName = "amount")]
-        public int Amount { get; set; }
+        internal int Amount { get; set; }
 
         [JsonProperty(PropertyName = "pos")]
-        public int Pos { get; set; }
+        internal int Pos { get; set; }
     }
 }

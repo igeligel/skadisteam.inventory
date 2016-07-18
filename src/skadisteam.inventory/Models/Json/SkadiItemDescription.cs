@@ -1,13 +1,13 @@
 namespace skadisteam.inventory.Models.Json
 {
-    public class SkadiItemDescription
+    internal class SkadiItemDescription
     {
-        public SkadiItemDescriptionAppData AppData { get; set; }
-        
-        public string Color { get; set; }
-        
-        public string Type { get; set; }
-        
-        public string Value { get; set; }
+        internal SkadiItemDescriptionAppData AppData { get; set; }
+
+        internal string Color { get; set; }
+
+        internal string Type { get; set; }
+
+        internal string Value { get; set; }
     }
 }

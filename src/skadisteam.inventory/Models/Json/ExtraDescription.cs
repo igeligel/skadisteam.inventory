@@ -2,18 +2,18 @@
 
 namespace skadisteam.inventory.Models.Json
 {
-    public class ExtraDescription
+    internal class ExtraDescription
     {
         [JsonProperty(PropertyName = "app_data")]
-        public AppData AppData { get; set; }
+        internal AppData AppData { get; set; }
 
         [JsonProperty(PropertyName = "color")]
-        public string Color { get; set; }
+        internal string Color { get; set; }
 
         [JsonProperty(PropertyName = "type")]
-        public string Type { get; set; }
+        internal string Type { get; set; }
 
         [JsonProperty(PropertyName = "value")]
-        public string Value { get; set; }
+        internal string Value { get; set; }
     }
 }
