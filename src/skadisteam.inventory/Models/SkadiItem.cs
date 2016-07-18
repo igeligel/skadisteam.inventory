@@ -12,7 +12,7 @@ namespace skadisteam.inventory.Models
         public int Position { get; set; }
         public string BackgroundColor { get; set; }
         public int Commodity { get; set; }
-        public List<ExtraDescription> Description { get; set; }
+        public List<SkadiItemDescription> Description { get; set; }
         public string IconDragUrl { get; set; }
         public string IconUrl { get; set; }
         public string MarketHashName { get; set; }
@@ -20,7 +20,7 @@ namespace skadisteam.inventory.Models
         public int MarketTradableRestriction { get; set; }
         public string Name { get; set; }
         public string NameColor { get; set; }
-        public List<Tag> Tags { get; set; }
+        public List<SkadiItemTag> Tags { get; set; }
         public int Tradable { get; set; }
         public string Type { get; set; }
     }
