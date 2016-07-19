@@ -7,8 +7,23 @@ using SkadiItemDescription = skadisteam.inventory.Models.SkadiItemDescription;
 
 namespace skadisteam.inventory.Factories
 {
-    public static class SkadiInventoryFactory
+    /// <summary>
+    /// Factory for creating the inventory instance of Skadisteam.
+    /// </summary>
+    internal static class SkadiInventoryFactory
     {
+        /// <summary>
+        /// Create a SkadiInventory out of the JSON response of
+        /// the steam community api.
+        /// </summary>
+        /// <param name="rootInventory">
+        /// JSON Model of the response. For further information
+        /// lookup <see cref="RootInventory"/>.
+        /// </param>
+        /// <returns>
+        /// An instance of <see cref="SkadiInventory"/> which includes 
+        /// a simple model for the steam inventory.
+        /// </returns>
         internal static SkadiInventory Create(RootInventory rootInventory)
         {
             SkadiInventory skadiInventory = new SkadiInventory();
