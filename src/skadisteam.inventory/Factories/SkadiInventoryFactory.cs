@@ -64,7 +64,7 @@ namespace skadisteam.inventory.Factories
                         continue;
                     }
 
-                    skadiItemDescription.AppData = new AppData();
+                    skadiItemDescription.AppData = new SkadiItemDescriptionAppData();
 
                     skadiItemDescription.AppData.DefIndex =
                     innerDescription.AppData.DefIndex;
