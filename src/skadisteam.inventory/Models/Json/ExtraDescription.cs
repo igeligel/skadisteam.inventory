@@ -16,7 +16,7 @@ namespace skadisteam.inventory.Models.Json
         internal AppData AppData { get; set; }
 
         /// <summary>
-        /// Color of the item.
+        /// Color of the description.
         /// </summary>
         [JsonProperty(PropertyName = "color")]
         internal string Color { get; set; }

@@ -3,7 +3,7 @@ using Newtonsoft.Json;
 namespace skadisteam.inventory.Models.Json
 {
     /// <summary>
-    /// Speicfic information of an item. The propertie's
+    /// Specific information of an item. The propertie's
     /// value is related to the app which is requested.
     /// </summary>
     internal class AppData
