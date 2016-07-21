@@ -1,3 +1,4 @@
+using System;
 using skadisteam.inventory.Models;
 using System.Net;
 using Newtonsoft.Json;
@@ -53,51 +54,36 @@ namespace skadisteam.inventory
         /// <summary>
         /// Method to request the inventory of a private accessible inventory.
         /// </summary>
-        /// <param name="partnerCommunityId">
-        /// Steam community id of the inventory requested.
-        /// </param>
-        /// <param name="appId">
-        /// App Id which should be requested.
-        /// </param>
-        /// <param name="contextId">
-        /// Context Id related to app id.
-        /// </param>
-        /// <param name="sessionId">
-        /// Session id of a login session.
-        /// </param>
-        /// <param name="steamLoginSecure">
-        /// Steam login secure value of a login session.
-        /// </param>
-        /// <param name="tradeToken">
-        /// Trade token of the profile which the inventory is requested for.
-        /// </param>
-        /// <param name="tradableItems">
-        /// Value which filters just for tradable items.
-        /// </param>
-        /// <param name="steam32Id">
-        /// Steam id in 32 Bit format.
-        /// </param>
         /// <returns>
         /// An instance of <see cref="SkadiInventory"/>. Its a simplified
         /// formatted data structure which holds the inventory.
         /// </returns>
-        public static SkadiInventory LoadPartnerInventory(long partnerCommunityId,
-            int appId, int contextId, string sessionId,
-            string steamLoginSecure, string tradeToken, bool tradableItems,
-            int steam32Id)
+        public static SkadiInventory LoadPartnerInventory(
+            SkadiLoadPartnerInventoryConfiguration
+                skadiLoadPartnerInventoryConfiguration)
         {
-            var path = PathFactory.CreatePartnerInventoryPath(sessionId,
-                partnerCommunityId,
-                appId, contextId, tradableItems);
+            var steam32Id =
+                Convert.ToInt32(
+                    (skadiLoadPartnerInventoryConfiguration.PartnerCommunityId -
+                     76561197960265728)/2);
+            var path =
+                PathFactory.CreatePartnerInventoryPath(
+                    skadiLoadPartnerInventoryConfiguration.SessionId,
+                    skadiLoadPartnerInventoryConfiguration.PartnerCommunityId,
+                    skadiLoadPartnerInventoryConfiguration.AppId,
+                    skadiLoadPartnerInventoryConfiguration.ContextId,
+                    skadiLoadPartnerInventoryConfiguration.TradableItems);
 
             var cookieContainer = new CookieContainer()
                 .AddEnglishSteamLanguageCookie()
-                .AddSteamSessionIdCookie(sessionId)
-                .AddSteamLoginSecureCookie(steamLoginSecure);
+                .AddSteamSessionIdCookie(
+                    skadiLoadPartnerInventoryConfiguration.SessionId)
+                .AddSteamLoginSecureCookie(
+                    skadiLoadPartnerInventoryConfiguration.SteamLoginSecure);
 
             var requestFactory = new RequestFactory(cookieContainer);
             var response = requestFactory.CreatePartnerInventory(path,
-                steam32Id, tradeToken);
+                steam32Id, skadiLoadPartnerInventoryConfiguration.TradeToken);
             var responseBody = response.Content.ReadAsStringAsync().Result;
             var inventory =
                 JsonConvert.DeserializeObject<RootInventory>(responseBody);
