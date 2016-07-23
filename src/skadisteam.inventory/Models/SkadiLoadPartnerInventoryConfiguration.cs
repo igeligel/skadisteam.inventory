@@ -1,6 +1,12 @@
+using skadisteam.inventory.Interfaces;
+
 namespace skadisteam.inventory.Models
 {
-    public class SkadiLoadPartnerInventoryConfiguration
+    /// <summary>
+    /// Configuration class for loading the partner
+    /// inventory.
+    /// </summary>
+    public class SkadiLoadPartnerInventoryConfiguration: ISkadiLoadPartnerInventoryConfiguration
     {
         /// <summary>
         /// App Id which should be requested.

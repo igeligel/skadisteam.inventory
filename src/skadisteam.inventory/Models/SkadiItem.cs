@@ -1,11 +1,12 @@
 using System.Collections.Generic;
+using skadisteam.inventory.Interfaces;
 
 namespace skadisteam.inventory.Models
 {
     /// <summary>
     /// Class for defining items in the inventory of a user.
     /// </summary>
-    public class SkadiItem
+    public class SkadiItem: ISkadiItem
     {
         /// <summary>
         /// Amount of items. This is only used for special items
@@ -37,9 +38,9 @@ namespace skadisteam.inventory.Models
         /// <summary>
         /// Contains a list of more specific descriptions.
         /// For further information lookup 
-        /// <see cref="SkadiItemDescription"/>.
+        /// <see cref="ISkadiItemDescription"/>.
         /// </summary>
-        public List<SkadiItemDescription> Description { get; set; }
+        public List<ISkadiItemDescription> Description { get; set; }
 
         /// <summary>
         /// URL for the icon which is used to drag in the steamcommunity
@@ -93,9 +94,9 @@ namespace skadisteam.inventory.Models
 
         /// <summary>
         /// List of special tags for the items. For further
-        /// information lookup <see cref="SkadiItemTag"/>.
+        /// information lookup <see cref="ISkadiItemTag"/>.
         /// </summary>
-        public List<SkadiItemTag> Tags { get; set; }
+        public List<ISkadiItemTag> Tags { get; set; }
 
         /// <summary>
         /// Value which describes if the item is tradable or

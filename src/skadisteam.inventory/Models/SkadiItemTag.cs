@@ -1,3 +1,5 @@
+using skadisteam.inventory.Interfaces;
+
 namespace skadisteam.inventory
 {
     /// <summary>
@@ -5,7 +7,7 @@ namespace skadisteam.inventory
     /// are differentiated by the category.
     /// This tag contains additional information of the item.
     /// </summary>
-    public class SkadiItemTag
+    public class SkadiItemTag: ISkadiItemTag
     {
         /// <summary>
         /// Category of the tag.

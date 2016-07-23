@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using skadisteam.inventory.Interfaces;
 
 namespace skadisteam.inventory.Models
 {
@@ -9,11 +10,11 @@ namespace skadisteam.inventory.Models
     /// not based on dictionaries which make working with
     /// inventories easier.
     /// </summary>
-    public class SkadiInventory
+    public class SkadiInventory: ISkadiInventory
     {
         /// <summary>
         /// List of <see cref="SkadiItem"/>.
         /// </summary>
-        public List<SkadiItem> Items { get; set; }
+        public List<ISkadiItem> Items { get; set; }
     }
 }

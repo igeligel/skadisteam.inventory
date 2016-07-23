@@ -1,10 +1,12 @@
+using skadisteam.inventory.Interfaces;
+
 namespace skadisteam.inventory.Models
 {
     /// <summary>
     /// Specific information of an item. The propertie's
     /// value is related to the app which is requested.
     /// </summary>
-    public class SkadiItemDescriptionAppData
+    public class SkadiItemDescriptionAppData: ISkadiItemDescriptionAppData
     {
         /// <summary>
         /// Definition Index of the item.
