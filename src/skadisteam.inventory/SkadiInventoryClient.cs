@@ -1,10 +1,11 @@
 using System;
-using skadisteam.inventory.Models;
 using System.Net;
 using Newtonsoft.Json;
 using skadisteam.inventory.Extensions;
 using skadisteam.inventory.Factories;
 using skadisteam.inventory.Models.Json;
+using skadisteam.inventory.Interfaces;
+using skadisteam.inventory.Constants;
 
 namespace skadisteam.inventory
 {
@@ -27,18 +28,19 @@ namespace skadisteam.inventory
         /// </summary>
         /// <param name="skadiLoadInventory">
         /// Configuration Instance of 
-        /// <see cref="SkadiLoadInventoryConfiguration"/>.
+        /// <see cref="ISkadiLoadInventoryConfiguration"/>.
         /// </param>
         /// <returns>
-        /// An instance of <see cref="SkadiInventory"/>. Its a simplified
+        /// An instance of <see cref="ISkadiInventory"/>. Its a simplified
         /// formatted data structure which holds the inventory.
         /// </returns>
-        public static SkadiInventory LoadInventory(
-            SkadiLoadInventoryConfiguration skadiLoadInventory)
+        public static ISkadiInventory LoadInventory(
+            ISkadiLoadInventoryConfiguration skadiLoadInventory)
         {
             var path =
                 PathFactory.CreatePublicInventoryPath(
-                    skadiLoadInventory.PartnerId, skadiLoadInventory.AppId,
+                    skadiLoadInventory.PartnerCommunityId,
+                    skadiLoadInventory.AppId,
                     skadiLoadInventory.ContextId,
                     skadiLoadInventory.TradableItems);
 
@@ -58,14 +60,14 @@ namespace skadisteam.inventory
         /// An instance of <see cref="SkadiInventory"/>. Its a simplified
         /// formatted data structure which holds the inventory.
         /// </returns>
-        public static SkadiInventory LoadPartnerInventory(
-            SkadiLoadPartnerInventoryConfiguration
+        public static ISkadiInventory LoadPartnerInventory(
+            ISkadiLoadPartnerInventoryConfiguration
                 skadiLoadPartnerInventoryConfiguration)
         {
             var steam32Id =
                 Convert.ToInt32(
                     (skadiLoadPartnerInventoryConfiguration.PartnerCommunityId -
-                     76561197960265728)/2);
+                     SteamIds.StandardCommunity) / 2);
             var path =
                 PathFactory.CreatePartnerInventoryPath(
                     skadiLoadPartnerInventoryConfiguration.SessionId,

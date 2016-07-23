@@ -4,6 +4,7 @@ using skadisteam.inventory.Models.Json;
 using System.Collections.Generic;
 using System.Linq;
 using SkadiItemDescription = skadisteam.inventory.Models.SkadiItemDescription;
+using skadisteam.inventory.Interfaces;
 
 namespace skadisteam.inventory.Factories
 {
@@ -27,7 +28,7 @@ namespace skadisteam.inventory.Factories
         internal static SkadiInventory Create(RootInventory rootInventory)
         {
             SkadiInventory skadiInventory = new SkadiInventory();
-            skadiInventory.Items = new List<SkadiItem>();
+            skadiInventory.Items = new List<ISkadiItem>();
 
             var descriptions = rootInventory.Descriptions;
             var inventory = rootInventory.Inventory;
@@ -49,7 +50,7 @@ namespace skadisteam.inventory.Factories
 
                 skadiItem.BackgroundColor = description.Value.BackgroundColor;
                 skadiItem.Commodity = description.Value.Commodity;
-                skadiItem.Description = new List<SkadiItemDescription>();
+                skadiItem.Description = new List<ISkadiItemDescription>();
 
                 foreach (var innerDescription in description.Value.Descriptions)
                 {
@@ -83,7 +84,7 @@ namespace skadisteam.inventory.Factories
                 skadiItem.MarketTradableRestriction = description.Value.MarketTradableRestriction;
                 skadiItem.Name = description.Value.Name;
                 skadiItem.NameColor = description.Value.NameColor;
-                skadiItem.Tags = new List<SkadiItemTag>();
+                skadiItem.Tags = new List<ISkadiItemTag>();
                 foreach (var innerTag in description.Value.Tags)
                 {
                     SkadiItemTag skadiItemTag = new SkadiItemTag
