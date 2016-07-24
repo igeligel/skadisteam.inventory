@@ -17,8 +17,9 @@ var privateInventory =
     SkadiInventoryClient.LoadPartnerInventory(...);
 ```
 
-- [public static ISkadiInventory LoadInventory(ISkadiLoadInventoryConfiguration skadiLoadInventory)]()
-- [public static ISkadiInventory LoadPartnerInventory(ISkadiLoadPartnerInventoryConfiguration skadiLoadPartnerInventoryConfiguration)]()
+*Methods*
+- [public static ISkadiInventory LoadInventory(ISkadiLoadInventoryConfiguration skadiLoadInventory)](#public-static-iskadiinventory-loadinventoryiskadiloadinventoryconfiguration-skadiloadinventory)
+- [public static ISkadiInventory LoadPartnerInventory(ISkadiLoadPartnerInventoryConfiguration skadiLoadPartnerInventoryConfiguration)](#public-static-iskadiinventory-loadpartnerinventoryiskadiloadpartnerinventoryconfiguration-skadiloadpartnerinventoryconfiguration)
 
 
 ---------------------------------
@@ -30,7 +31,7 @@ var privateInventory =
 
 *Parameters*
 | Name | Type | Description |
-| - | - | - |
+| ---- | ---- | ----------- |
 | skadiLoadInventory | ISkadiLoadInventoryConfiguration | Configuration Instance of ISkadiLoadInventoryConfiguration | 
 
 *Returns*
@@ -56,5 +57,4 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 
 A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o9Z.png).
 
----------------------------------
 ---------------------------------
