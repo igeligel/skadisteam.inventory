@@ -6,6 +6,11 @@ Classes:
 Interfaces:
 - [ISkadiInventory](#iskadiinventory)
 - [ISkadiItem](#iskadiitem)
+- [ISkadiItemDescription](#iskadiitemdescription)
+- [ISkadiItemDescriptionAppData](#iskadiitemdescriptionappdata)
+- [ISkadiItemTag](#iskadiitemtag)
+- [ISkadiLoadInventoryConfiguration](#iskadiloadinventoryconfiguration)
+- [ISkadiLoadPartnerInventoryConfiguration](#iskadiloadpartnerinventoryconfiguration)
 
 ## SkadiInventoryClient
 
@@ -37,11 +42,10 @@ var privateInventory =
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| skadiLoadInventory | ISkadiLoadInventoryConfiguration | Configuration Instance of ISkadiLoadInventoryConfiguration. | 
+| skadiLoadInventory | [ISkadiLoadInventoryConfiguration](#iskadiloadinventoryconfiguration) | Configuration Instance of [ISkadiLoadInventoryConfiguration](#iskadiloadinventoryconfiguration). | 
 
 *Returns*
 > An instance of [ISkadiInventory](#iskadiinventory). Its a simplified formatted data structure which holds the inventory.
-
 
 A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o9Z.png).
 
@@ -56,10 +60,10 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| skadiLoadPartnerInventoryConfiguration | ISkadiLoadPartnerInventoryConfiguration | Configuration for loading partner inventories. For further reference lookup ISkadiLoadPartnerInventoryConfiguration. | 
+| skadiLoadPartnerInventoryConfiguration | [ISkadiLoadPartnerInventoryConfiguration](#iskadiloadpartnerinventoryconfiguration) | Configuration for loading partner inventories. For further reference lookup [ISkadiLoadPartnerInventoryConfiguration](#iskadiloadpartnerinventoryconfiguration). | 
 
 *Returns*
-> An instance of [ISkadiInventory](#ISkadiInventory). Its a simplified formatted data structure which holds the inventory.
+> An instance of [ISkadiInventory](#iskadiinventory). Its a simplified formatted data structure which holds the inventory.
 
 A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o9Z.png).
 
@@ -74,7 +78,7 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| Items | List\<ISkadiItem\> | List of ISkadiItem. | 
+| Items | List\<[ISkadiItem](#iskadiitem)\> | List of [ISkadiItem](#iskadiitem). | 
 
 ---------------------------------
 
@@ -92,7 +96,7 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 | BackgroundColor | string | Background color of the item. This property is related to the game. Some games do not have this color. | 
 | ClassId |long | Id of the class. The class is describing the item. | 
 | Commodity | int | Is describing the actual content of the description. | 
-| Description | List\<ISkadiItemDescription\> | Contains a list of more specific descriptions. For further information lookup ISkadiItemDescription. | 
+| Description | List\<[ISkadiItemDescription](#iskadiitemdescription)\> | Contains a list of more specific descriptions. For further information lookup [ISkadiItemDescription](#iskadiitemdescription). | 
 | IconDragUrl | string | URL for the icon which is used to drag in the steamcommunity services. | 
 | IconUrl | string | Icon URL which is used for icons in the steamcommunity services. | 
 | InstanceId | long | Instance id of the item. This id is related to the class id. There can be several items with the same instance id but they have different classes. So the combination out of class id and instance id is unique for one inventory. | 
@@ -101,7 +105,7 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 | MarketTradableRestriction | int | Value which describes if the item has a market or trading restriction. | 
 | Name | string | Name of the item. | 
 | Position | int | Position of the item in the inventory. | 
-| Tags | List\<ISkadiItemTag\> | List of special tags for the items. For further information lookup SkadiItemTag. | 
+| Tags | List\<[ISkadiItemTag](#iskadiitemtag)\> | List of special tags for the items. For further information lookup [SkadiItemTag](#iskadiitemtag). | 
 | Tradable | int | Value which describes if the item is tradable or | 
 | Type | string | Value which describes the type of the item. |
 
@@ -110,16 +114,83 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 
 ## ISkadiItemDescription
 
+*Summary*
+> Interface to define the structure of internal descriptions for the items in the inventory.
+
+*Properties*
+
+| Name    | Type | Description |
+| ------- | ---- | ----------- |
+| AppData | [ISkadiItemDescriptionAppData](#iskadiitemdescriptionappdata) | Specific information of the app. For more information lookup [SkadiItemDescriptionAppData](#iskadiitemdescriptionappdata). |
+| Color   | string | Color of the description. |
+| Type    | string | Type of the extra description. |
+| Value   | string | Value regarding to the type of the description. |
+
 ---------------------------------
 
 ## ISkadiItemDescriptionAppData
+
+*Summary*
+> Interace which defines properties of the app data extension in descriptions.
+
+*Properties*
+
+| Name          | Type   | Description |
+| ------------- | ------ | ----------- |
+| DefIndex      | string | Definition Index of the item. |
+| IsItemSetName | int    | Value which describes if an item set name is set. |
+| Limited       | int    | Value which describes if an item was limited by Steam. |
+
+---------------------------------
+
+## ISkadiItemTag
+
+*Summary*
+> Tags for items used. There are different types which are differentiated by the category. This tag contains additional information of the item.
+
+*Properties*
+
+| Name         | Type   | Description |
+| ------------ | ------ | ----------- |
+| Category     | string | Category of the tag. |
+| CategoryName | string | Name of the category. |
+| Color        | string | Color of the category. |
+| InternalName | string | Internal name of the tag. |
+| Name         | string | Name of the tag to show. |
 
 ---------------------------------
 
 ## ISkadiLoadInventoryConfiguration
 
+*Summary*
+> Interface to declare minimum of parameters given to load public steam inventories.
+
+*Properties*
+
+| Name               | Type | Description |
+| ------------------ | ---- | ----------- |
+| AppId              | int  | Which app id should be requested. |
+| ContextId          | int  | Context id to the app id. |
+| PartnerCommunityId | long | Steam community id of the inventory requested. |
+| TradableItems      | bool | Value to decide if jsut tradable items should be in the output or not. |
+
 ---------------------------------
 
 ## ISkadiLoadPartnerInventoryConfiguration
+
+*Summary*
+> Interface to declare minimum of parameters given to load private steam inventories.
+
+*Properties*
+
+| Name               | Type   | Description |
+| ------------------ | ------ | ----------- |
+| AppId              | int    | App Id which should be requested. |
+| ContextId          | int    | Context Id related to app id. |
+| PartnerCommunityId | long   | Steam community id of the inventory requested. |
+| SessionId          | string | Session id of a login session. |
+| SteamLoginSecure   | string | Steam login secure value of a login session. |
+| TradeToken         | string | Trade token of the profile which the inventory is requested for. |
+| TradableItems      | bool   | Value which filters just for tradable items. |
 
 ---------------------------------
