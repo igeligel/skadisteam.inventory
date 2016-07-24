@@ -4,8 +4,8 @@ Classes:
 - [SkadiInventoryClient](#SkadiInventoryClient)
 
 Interfaces:
-- ISkadiInventory
-- b
+- [ISkadiInventory](#iskadiinventory)
+- [ISkadiItem](#iskadiitem)
 
 ## SkadiInventoryClient
 
@@ -37,10 +37,10 @@ var privateInventory =
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| skadiLoadInventory | ISkadiLoadInventoryConfiguration | Configuration Instance of ISkadiLoadInventoryConfiguration | 
+| skadiLoadInventory | ISkadiLoadInventoryConfiguration | Configuration Instance of ISkadiLoadInventoryConfiguration. | 
 
 *Returns*
-> An instance of ISkadiInventory. Its a simplified formatted data structure which holds the inventory.
+> An instance of [ISkadiInventory](#iskadiinventory). Its a simplified formatted data structure which holds the inventory.
 
 
 A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o9Z.png).
@@ -55,11 +55,11 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 *Parameters*
 
 | Name | Type | Description |
-| - | - | - |
+| ---- | ---- | ----------- |
 | skadiLoadPartnerInventoryConfiguration | ISkadiLoadPartnerInventoryConfiguration | Configuration for loading partner inventories. For further reference lookup ISkadiLoadPartnerInventoryConfiguration. | 
 
 *Returns*
-> An instance of [ISkadiInventory](). Its a simplified formatted data structure which holds the inventory.
+> An instance of [ISkadiInventory](#ISkadiInventory). Its a simplified formatted data structure which holds the inventory.
 
 A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o9Z.png).
 
@@ -71,9 +71,10 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 > Interface to define a data structure which holds all items of an inventory. This will just hold a list of ISkadiItem. This model is simplified and not based on dictionaries which make working with inventories easier.
 
 *Properties*
+
 | Name | Type | Description |
-| - | - | - |
-| Items | List<ISkadiItem> | List of ISkadiItem. | 
+| ---- | ---- | ----------- |
+| Items | List\<ISkadiItem\> | List of ISkadiItem. | 
 
 ---------------------------------
 
@@ -91,7 +92,7 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 | BackgroundColor | string | Background color of the item. This property is related to the game. Some games do not have this color. | 
 | ClassId |long | Id of the class. The class is describing the item. | 
 | Commodity | int | Is describing the actual content of the description. | 
-| Description | List<ISkadiItemDescription> | Contains a list of more specific descriptions. For further information lookup ISkadiItemDescription. | 
+| Description | List\<ISkadiItemDescription\> | Contains a list of more specific descriptions. For further information lookup ISkadiItemDescription. | 
 | IconDragUrl | string | URL for the icon which is used to drag in the steamcommunity services. | 
 | IconUrl | string | Icon URL which is used for icons in the steamcommunity services. | 
 | InstanceId | long | Instance id of the item. This id is related to the class id. There can be several items with the same instance id but they have different classes. So the combination out of class id and instance id is unique for one inventory. | 
@@ -100,7 +101,7 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 | MarketTradableRestriction | int | Value which describes if the item has a market or trading restriction. | 
 | Name | string | Name of the item. | 
 | Position | int | Position of the item in the inventory. | 
-| Tags | List<ISkadiItemTag> | List of special tags for the items. For further information lookup SkadiItemTag. | 
+| Tags | List\<ISkadiItemTag\> | List of special tags for the items. For further information lookup SkadiItemTag. | 
 | Tradable | int | Value which describes if the item is tradable or | 
 | Type | string | Value which describes the type of the item. |
 
