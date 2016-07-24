@@ -85,7 +85,7 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 *Properties*
 
 | Name | Type | Description |
-| - | - | - |
+| ---- | ---- | ----------- |
 | Amount | int | Amount of items. This is only used for special items like gems of the Steam Community. | 
 | AssetId | long |  Asset Id of the item, which is used in several trading parts. | 
 | BackgroundColor | string | Background color of the item. This property is related to the game. Some games do not have this color. | 
@@ -102,7 +102,7 @@ A sample of the the prices instance can be found [here](http://i.imgur.com/EMp0o
 | Position | int | Position of the item in the inventory. | 
 | Tags | List<ISkadiItemTag> | List of special tags for the items. For further information lookup SkadiItemTag. | 
 | Tradable | int | Value which describes if the item is tradable or | 
-| Type | string | Value which describes the type of the item. | 
+| Type | string | Value which describes the type of the item. |
 
 
 ---------------------------------
