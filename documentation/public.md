@@ -30,6 +30,7 @@ var privateInventory =
 > Method to request the inventory of a public accessible inventory.
 
 *Parameters*
+
 | Name | Type | Description |
 | ---- | ---- | ----------- |
 | skadiLoadInventory | ISkadiLoadInventoryConfiguration | Configuration Instance of ISkadiLoadInventoryConfiguration | 
