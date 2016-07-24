@@ -1,5 +1,9 @@
 namespace skadisteam.inventory.Interfaces
 {
+    /// <summary>
+    /// Interace which defines properties of the app data
+    /// extension in descriptions.
+    /// </summary>
     public interface ISkadiItemDescriptionAppData
     {
         /// <summary>

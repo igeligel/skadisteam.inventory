@@ -1,5 +1,9 @@
 namespace skadisteam.inventory.Interfaces
 {
+    /// <summary>
+    /// Interface to define the structure of internal descriptions
+    /// for the items in the inventory.
+    /// </summary>
     public interface ISkadiItemDescription
     {
         /// <summary>

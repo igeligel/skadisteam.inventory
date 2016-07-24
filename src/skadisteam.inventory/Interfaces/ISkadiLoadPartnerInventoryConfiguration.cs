@@ -1,5 +1,9 @@
 namespace skadisteam.inventory.Interfaces
 {
+    /// <summary>
+    /// Interface to declare minimum of parameters given to
+    /// load private steam inventories.
+    /// </summary>
     public interface ISkadiLoadPartnerInventoryConfiguration
     {
         /// <summary>

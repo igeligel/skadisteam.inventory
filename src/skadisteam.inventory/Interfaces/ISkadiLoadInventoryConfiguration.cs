@@ -2,7 +2,7 @@ namespace skadisteam.inventory.Interfaces
 {
     /// <summary>
     /// Interface to declare minimum of parameters given to
-    /// the login.
+    /// load public steam inventories.
     /// </summary>
     public interface ISkadiLoadInventoryConfiguration
     {
