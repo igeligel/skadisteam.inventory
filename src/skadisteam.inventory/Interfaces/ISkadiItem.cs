@@ -2,6 +2,9 @@ using System.Collections.Generic;
 
 namespace skadisteam.inventory.Interfaces
 {
+    /// <summary>
+    /// Interface to structure items in the steam inventory.
+    /// </summary>
     public interface ISkadiItem
     {
         /// <summary>
@@ -34,7 +37,7 @@ namespace skadisteam.inventory.Interfaces
         /// <summary>
         /// Contains a list of more specific descriptions.
         /// For further information lookup 
-        /// <see cref="SkadiItemDescription"/>.
+        /// <see cref="ISkadiItemDescription"/>.
         /// </summary>
         List<ISkadiItemDescription> Description { get; set; }
 
