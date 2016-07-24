@@ -56,8 +56,13 @@ namespace skadisteam.inventory
         /// <summary>
         /// Method to request the inventory of a private accessible inventory.
         /// </summary>
+        /// <param name="skadiLoadPartnerInventoryConfiguration">
+        /// Configuration for loading partner inventories.
+        /// For further reference lookup
+        /// <see cref="ISkadiLoadPartnerInventoryConfiguration"/>.
+        /// </param>
         /// <returns>
-        /// An instance of <see cref="SkadiInventory"/>. Its a simplified
+        /// An instance of <see cref="ISkadiInventory"/>. Its a simplified
         /// formatted data structure which holds the inventory.
         /// </returns>
         public static ISkadiInventory LoadPartnerInventory(
