@@ -1,14 +1,22 @@
-﻿{
-  "version": "1.0.0-*",
+{
+  "version": "0.1.0-beta",
+  "testRunner": "xunit",
 
   "dependencies": {
+    "xunit": "2.2.0-beta2-build3300",
+    "skadisteam.inventory": "0.1.0-beta",
     "NETStandard.Library": "1.6.0",
-    "skadisteam.inventory": "0.1.0-beta"
+    "dotnet-test-xunit": "2.2.0-preview2-build1029"
   },
 
   "frameworks": {
-    "netstandard1.6": {
-      "imports": "dnxcore50"
+    "netcoreapp1.0": {
+      "dependencies": {
+        "Microsoft.NETCore.App": {
+          "type": "platform",
+          "version": "1.0.0"
+        }
+      }
     }
   }
 }
