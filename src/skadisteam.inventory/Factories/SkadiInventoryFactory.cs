@@ -1,4 +1,3 @@
-using System;
 using skadisteam.inventory.Models;
 using skadisteam.inventory.Models.Json;
 using System.Collections.Generic;
@@ -52,30 +51,34 @@ namespace skadisteam.inventory.Factories
                 skadiItem.Commodity = description.Value.Commodity;
                 skadiItem.Description = new List<ISkadiItemDescription>();
 
-                foreach (var innerDescription in description.Value.Descriptions)
+                if (description.Value.Descriptions != null)
                 {
-                    var skadiItemDescription = new SkadiItemDescription
+                    foreach (var innerDescription in description.Value.Descriptions)
                     {
-                        Color = innerDescription.Color,
-                        Type = innerDescription.Type,
-                        Value = innerDescription.Value
-                    };
-                    if (innerDescription.AppData == null)
-                    {
-                        continue;
+                        var skadiItemDescription = new SkadiItemDescription
+                        {
+                            Color = innerDescription.Color,
+                            Type = innerDescription.Type,
+                            Value = innerDescription.Value
+                        };
+                        if (innerDescription.AppData == null)
+                        {
+                            continue;
+                        }
+
+                        skadiItemDescription.AppData = new SkadiItemDescriptionAppData();
+
+                        skadiItemDescription.AppData.DefIndex =
+                        innerDescription.AppData.DefIndex;
+                        skadiItemDescription.AppData.IsItemSetName =
+                            innerDescription.AppData.IsItemSetName;
+                        skadiItemDescription.AppData.Limited =
+                            innerDescription.AppData.Limited;
+
+                        skadiItem.Description.Add(skadiItemDescription);
                     }
-
-                    skadiItemDescription.AppData = new SkadiItemDescriptionAppData();
-
-                    skadiItemDescription.AppData.DefIndex =
-                    innerDescription.AppData.DefIndex;
-                    skadiItemDescription.AppData.IsItemSetName =
-                        innerDescription.AppData.IsItemSetName;
-                    skadiItemDescription.AppData.Limited =
-                        innerDescription.AppData.Limited;
-
-                    skadiItem.Description.Add(skadiItemDescription);
                 }
+                
 
                 skadiItem.IconDragUrl = description.Value.IconDragUrl;
                 skadiItem.IconUrl = description.Value.IconUrl;
