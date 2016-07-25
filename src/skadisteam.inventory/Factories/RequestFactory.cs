@@ -20,6 +20,7 @@ namespace skadisteam.inventory.Factories
         /// </summary>
         internal RequestFactory()
         {
+            _cookieContainer = new CookieContainer();
         }
 
         /// <summary>
