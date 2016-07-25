@@ -85,7 +85,7 @@ namespace skadisteam.inventory.Factories
                        appId + "&contextid=" + contextId;
             if (tradableItems)
             {
-                path = path.AddNewTradableItemParameter();
+                path = path.AddTradableItemParameter();
             }
             return path;
         }
