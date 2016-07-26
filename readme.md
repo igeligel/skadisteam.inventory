@@ -49,6 +49,59 @@ It will enable you to:
 
    in your project.json file. For an example watch the [testing package](https://github.com/igeligel/skadisteam.inventory/tree/master/src/skadisteam.inventory.test).
 
+## How to use
+
+All the core functionalities are built around the [SkadiInventoryClient](https://github.com/igeligel/skadisteam.inventory/blob/master/src/skadisteam.inventory/SkadiInventoryClient.cs). For documentation check out the [documentation](https://github.com/igeligel/skadisteam.inventory/blob/master/documentation/public.md#skadiinventoryclient).
+
+To use the public available inventory you need to do these steps:
+
+1. Create the configuration instace
+
+    ```csharp
+    var skadiLoadInventoryConfiguration =
+        new SkadiLoadInventoryConfiguration
+        {
+            AppId = 730,
+            ContextId = 2,
+            PartnerCommunityId = 76561198028630048,
+            TradableItems = true
+        };
+    ```
+    This will create the configuration for requesting inventories. It will request the appid, contextid, partner community id and a boolean if the items should be tradable.
+
+2. Now we need to transfer the instance as parameter to a function given by the SkadiInventoryClient.
+    ```csharp
+    var inventory = SkadiInventoryClient.LoadInventory(skadiLoadInventoryConfiguration);
+    ```
+    The inventory instance will hold now an inventory modelled by the [SkadiInventory](https://github.com/igeligel/skadisteam.inventory/blob/master/documentation/public.md#skadiinventory) class.
+
+We can also request private profiles if we have the trade token and successful login information:
+
+1. Create an instance of [SkadiLoadPartnerInventoryConfiguration](https://github.com/igeligel/skadisteam.inventory/blob/master/documentation/public.md#skadiloadpartnerinventoryconfiguration)
+
+    ```csharp
+    var skadiLoadPartnerInventoryConfiguration =
+        new SkadiLoadPartnerInventoryConfiguration
+            {
+                AppId = 730,
+                ContextId = 2,
+                PartnerCommunityId = 76561198028630048,
+                SessionId = "XXX,
+                SteamLoginSecure =
+                    "76561198028630048XXXXXX",
+                TradeToken = "XXXXXXXX",
+                TradableItems = false
+            };
+    ```
+    This configuration got similar properties compared to the inventory configuration of the public inventory.
+
+2. This instance needs to be transferred as parameter to a function of the SkadiInventoryClient.
+    ```csharp
+    var inventory = SkadiInventoryClient
+        .LoadPartnerInventory(skadiLoadPartnerInventoryConfiguration);
+    ```
+    The inventory instance will hold now an inventory modelled by the [SkadiInventory](https://github.com/igeligel/skadisteam.inventory/blob/master/documentation/public.md#skadiinventory) class.
+
 ## Documentation
 The documentation is referenced here:
 
