@@ -243,3 +243,11 @@ ModelManifest.xml
 
 # FAKE - F# Make
 .fake/
+
+skadisteam.inventory.console.sln
+skadisteam.inventory.console/
+
+#ProjectRider
+.idea.skadisteam.inventory.console
+.idea.skadisteam.inventory.console/
+.idea.skadisteam.inventory.console/.idea/workspace.xml

@@ -1,5 +1,4 @@
 using System.Reflection;
-using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following
@@ -7,7 +6,7 @@ using System.Runtime.InteropServices;
 // associated with an assembly.
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("skadisteam.inventory")]
+[assembly: AssemblyProduct("skadisteam.inventory.test")]
 [assembly: AssemblyTrademark("")]
 
 // Setting ComVisible to false makes the types in this assembly not visible
@@ -16,6 +15,4 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("3a2e2935-3e01-48ba-9bb8-284d36c64c70")]
-
-[assembly: InternalsVisibleTo("skadisteam.inventory.test")]
+[assembly: Guid("cc2e5021-72e8-460a-bd71-9210d174d079")]
