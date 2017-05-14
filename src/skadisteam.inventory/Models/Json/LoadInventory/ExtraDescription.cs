@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace skadisteam.inventory.Models.Json
+namespace skadisteam.inventory.Models.Json.LoadInventory
 {
     /// <summary>
     /// Class which gives additional information to one

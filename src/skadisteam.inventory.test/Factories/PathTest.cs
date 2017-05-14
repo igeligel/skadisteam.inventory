@@ -54,5 +54,27 @@ namespace skadisteam.inventory.test.Factories
                 "&trading=1";
             Assert.Equal(expectedPath, path);
         }
+
+        [Fact]
+        public void CreatePublicItemInventoryPath()
+        {
+            var path =
+                PathFactory.CreatePublicItemInventoryPath(76561198028630048,
+                    730, 2);
+            const string expectedPath =
+                "/inventory/76561198028630048/730/2?l=english&count=5000";
+            Assert.Equal(expectedPath, path);
+        }
+
+        [Fact]
+        public void CreatePublicItemInventoryPathCount()
+        {
+            var path =
+                PathFactory.CreatePublicItemInventoryPath(76561198028630048,
+                    730, 2, 275);
+            const string expectedPath =
+                "/inventory/76561198028630048/730/2?l=english&count=275";
+            Assert.Equal(expectedPath, path);
+        }
     }
 }

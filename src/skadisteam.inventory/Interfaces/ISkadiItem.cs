@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using skadisteam.inventory.Models;
 
 namespace skadisteam.inventory.Interfaces
 {

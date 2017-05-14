@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace skadisteam.inventory.Models.Json
+namespace skadisteam.inventory.Models.Json.LoadInventory
 {
     /// <summary>
     /// Description of the JSON responses. This will include

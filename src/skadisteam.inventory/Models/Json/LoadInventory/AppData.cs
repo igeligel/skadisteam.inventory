@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 
-namespace skadisteam.inventory.Models.Json
+namespace skadisteam.inventory.Models.Json.LoadInventory
 {
     /// <summary>
     /// Specific information of an item. The propertie's

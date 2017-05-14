@@ -3,9 +3,10 @@ using System.Net;
 using Newtonsoft.Json;
 using skadisteam.inventory.Extensions;
 using skadisteam.inventory.Factories;
-using skadisteam.inventory.Models.Json;
 using skadisteam.inventory.Interfaces;
 using skadisteam.inventory.Constants;
+using skadisteam.inventory.Models;
+using skadisteam.inventory.Models.Json.LoadInventory;
 
 namespace skadisteam.inventory
 {
@@ -23,6 +24,7 @@ namespace skadisteam.inventory
     /// </example>
     public static class SkadiInventoryClient
     {
+
         /// <summary>
         /// Method to request the inventory of a public accessible inventory.
         /// </summary>
@@ -34,6 +36,7 @@ namespace skadisteam.inventory
         /// An instance of <see cref="ISkadiInventory"/>. Its a simplified
         /// formatted data structure which holds the inventory.
         /// </returns>
+        [Obsolete("LoadInventory is deprecated, please use LoadInventoryItems instead.")]
         public static ISkadiInventory LoadInventory(
             ISkadiLoadInventoryConfiguration skadiLoadInventory)
         {
@@ -50,6 +53,37 @@ namespace skadisteam.inventory
             var inventory =
                 JsonConvert.DeserializeObject<RootInventory>(responseBody);
             var skadiInventory = SkadiInventoryFactory.Create(inventory);
+            return skadiInventory;
+        }
+
+        public static Models.SkadiItemInventory.SkadiItemInventory LoadInventoryItems(
+            SkadiLoadItemInventoryConfiguration
+                skadiLoadItemInventoryConfiguration)
+        {
+            string path;
+            if (skadiLoadItemInventoryConfiguration.Count != null)
+            {
+                path = PathFactory.CreatePublicItemInventoryPath(
+                    skadiLoadItemInventoryConfiguration.PartnerCommunityId,
+                    skadiLoadItemInventoryConfiguration.AppId,
+                    skadiLoadItemInventoryConfiguration.ContextId,
+                    skadiLoadItemInventoryConfiguration.Count.Value);
+            }
+            else
+            {
+                path = PathFactory.CreatePublicItemInventoryPath(
+                    skadiLoadItemInventoryConfiguration.PartnerCommunityId,
+                    skadiLoadItemInventoryConfiguration.AppId,
+                    skadiLoadItemInventoryConfiguration.ContextId);
+            }
+            var requestFactory = new RequestFactory();
+            var response = requestFactory.CreateLoadInventory(path);
+            var responseBody = response.Content.ReadAsStringAsync().Result;
+            var inventory =
+                JsonConvert
+                    .DeserializeObject<Models.Json.LoadItemInventory.
+                        RootInventory>(responseBody);
+            var skadiInventory = SkadiInventoryFactory.CreateNew(inventory);
             return skadiInventory;
         }
 

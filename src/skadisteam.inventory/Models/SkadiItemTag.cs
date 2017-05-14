@@ -1,6 +1,6 @@
 using skadisteam.inventory.Interfaces;
 
-namespace skadisteam.inventory
+namespace skadisteam.inventory.Models
 {
     /// <summary>
     /// Tags for items used. There are different types which

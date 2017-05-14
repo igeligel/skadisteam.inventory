@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using Newtonsoft.Json;
 
-namespace skadisteam.inventory.Models.Json
+namespace skadisteam.inventory.Models.Json.LoadInventory
 {
     /// <summary>
     /// JSON Model to deserialize the JSON string given by

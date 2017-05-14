@@ -1,9 +1,12 @@
 using skadisteam.inventory.Models;
-using skadisteam.inventory.Models.Json;
 using System.Collections.Generic;
 using System.Linq;
 using SkadiItemDescription = skadisteam.inventory.Models.SkadiItemDescription;
 using skadisteam.inventory.Interfaces;
+using skadisteam.inventory.Models.Json.LoadInventory;
+using skadisteam.inventory.Models.SkadiItemInventory;
+using SkadiItem = skadisteam.inventory.Models.SkadiItem;
+using SkadiItemTag = skadisteam.inventory.Models.SkadiItemTag;
 
 namespace skadisteam.inventory.Factories
 {
@@ -26,15 +29,15 @@ namespace skadisteam.inventory.Factories
         /// </returns>
         internal static SkadiInventory Create(RootInventory rootInventory)
         {
-            SkadiInventory skadiInventory = new SkadiInventory();
+            var skadiInventory = new SkadiInventory();
             skadiInventory.Items = new List<ISkadiItem>();
 
             var descriptions = rootInventory.Descriptions;
             var inventory = rootInventory.Inventory;
 
-            foreach (KeyValuePair<string, Item> entry in inventory)
+            foreach (var entry in inventory)
             {
-                SkadiItem skadiItem = new SkadiItem();
+                var skadiItem = new SkadiItem();
                 skadiItem.Amount = entry.Value.Amount;
                 skadiItem.ClassId = entry.Value.ClassId;
                 skadiItem.InstanceId = entry.Value.InstanceId;
@@ -106,6 +109,90 @@ namespace skadisteam.inventory.Factories
                 skadiInventory.Items.Add(skadiItem);
             }
             return skadiInventory;
+        }
+
+        internal static SkadiItemInventory CreateNew(
+            Models.Json.LoadItemInventory.RootInventory rootInventory)
+        {
+            var skadiItemInventory =
+                new SkadiItemInventory
+                {
+                    Rwgrsn = rootInventory.Rwgrsn,
+                    Items = new List<Models.SkadiItemInventory.SkadiItem>()
+                };
+            foreach (var rootInventoryAsset in rootInventory.Assets)
+            {
+                var descriptionForItem =
+                    rootInventory.Descriptions.FirstOrDefault(
+                        e => e.ClassId == rootInventoryAsset.ClassId &&
+                             e.InstanceId == rootInventoryAsset.InstanceId);
+                var skadiItem = new Models.SkadiItemInventory.SkadiItem();
+                skadiItem.ContextId = int.Parse(rootInventoryAsset.ContextId);
+                skadiItem.Amount = int.Parse(rootInventoryAsset.Amount);
+                skadiItem.AppId = int.Parse(rootInventoryAsset.AppId);
+                skadiItem.AssetId = long.Parse(rootInventoryAsset.AssetId);
+                skadiItem.ClassId = long.Parse(rootInventoryAsset.ClassId);
+                skadiItem.InstanceId = long.Parse(rootInventoryAsset.InstanceId);
+
+                skadiItem.Actions = new List<SkadiItemAction>();
+                if (descriptionForItem.Actions != null)
+                {
+                    foreach (var action in descriptionForItem.Actions)
+                    {
+                        skadiItem.Actions.Add(new SkadiItemAction
+                        {
+                            Link = action.Link,
+                            Name = action.Name
+                        });
+                    }
+                }
+
+                skadiItem.Descriptions = new List<Models.SkadiItemInventory.SkadiItemDescription>();
+                foreach (var innerDescription in descriptionForItem.Descriptions)
+                {
+                    skadiItem.Descriptions.Add(
+                        new Models.SkadiItemInventory.SkadiItemDescription
+                        {
+                            Type = innerDescription.Type,
+                            Color = innerDescription.Color,
+                            Value = innerDescription.Value
+                        });
+                }
+
+                skadiItem.Tags = new List<Models.SkadiItemInventory.SkadiItemTag>();
+                foreach (var tag in descriptionForItem.Tags)
+                {
+                    skadiItem.Tags.Add(
+                        new Models.SkadiItemInventory.SkadiItemTag
+                        {
+                            Color = tag.Color,
+                            Category = tag.Category,
+                            InternalName = tag.InternalName,
+                            LocalizedCategoryName = tag.LocalizedCategoryName,
+                            LocalizedTagName = tag.LocalizedTagName
+                        });
+                }
+
+                skadiItem.BackgroundColor = descriptionForItem.BackgroundColor;
+                skadiItem.Type = descriptionForItem.Type;
+                skadiItem.Tradable = descriptionForItem.Tradable == 1;
+                skadiItem.Name = descriptionForItem.Name;
+                skadiItem.Marketable = descriptionForItem.Marketable == 1;
+                skadiItem.MarketTradableRestriction = descriptionForItem
+                    .MarketTradableRestriction;
+                skadiItem.MarketName = descriptionForItem.MarketName;
+                skadiItem.MarketMarketableRestriction = descriptionForItem
+                    .MarketMarketableRestriction;
+                skadiItem.MarketHashName = descriptionForItem.MarketHashName;
+                skadiItem.MarketFeeApp = descriptionForItem.MarketFeeApp;
+                skadiItem.IconUrlLarge = descriptionForItem.IconUrlLarge;
+                skadiItem.IconUrl = descriptionForItem.IconUrl;
+                skadiItem.Currency = descriptionForItem.Currency;
+                skadiItem.Commodity = descriptionForItem.Commodity;
+
+                skadiItemInventory.Items.Add(skadiItem);
+            }
+            return skadiItemInventory;
         }
     }
 }

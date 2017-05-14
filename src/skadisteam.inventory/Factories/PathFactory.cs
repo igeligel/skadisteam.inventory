@@ -89,5 +89,19 @@ namespace skadisteam.inventory.Factories
             }
             return path;
         }
+
+        internal static string CreatePublicItemInventoryPath(
+            long steamCommunityPartnerId, int appId, int contextId)
+        {
+            return CreatePublicItemInventoryPath(steamCommunityPartnerId, appId,
+                contextId, 5000);
+        }
+
+        internal static string CreatePublicItemInventoryPath(
+            long steamCommunityPartnerId, int appId, int contextId, int count)
+        {
+            return
+                $"/inventory/{steamCommunityPartnerId}/{appId}/{contextId}?l=english&count={count}";
+        }
     }
 }

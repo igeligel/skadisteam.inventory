@@ -1,6 +1,6 @@
 using Newtonsoft.Json;
 using skadisteam.inventory.Factories;
-using skadisteam.inventory.Models.Json;
+using skadisteam.inventory.Models.Json.LoadInventory;
 using skadisteam.inventory.test.Constants;
 using Xunit;
 
