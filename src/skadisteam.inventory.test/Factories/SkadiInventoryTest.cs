@@ -47,5 +47,11 @@ namespace skadisteam.inventory.test.Factories
             var skadiInventory = SkadiInventoryFactory.Create(rootInventory);
             Assert.Equal(85, skadiInventory.Items.Count);
         }
+
+        [Fact]
+        public void FailingTest()
+        {
+            Assert.Equal(66,22);
+        }
     }
 }
