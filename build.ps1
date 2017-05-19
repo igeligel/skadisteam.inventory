@@ -30,4 +30,4 @@ dotnet restore
 
 ls
 
-exec { & dotnet test -c release }
+exec { & dotnet test }
