@@ -9,7 +9,7 @@ nuget:
 skip_tags: true
 before_build:
 - ps: >-
-    (new-object net.webclient).DownloadFile('https://download.microsoft.com/download/B/9/F/B9F1AF57-C14A-4670-9973-CDF47209B5BF/dotnet-dev-win-x64.1.0.4.exe','core.exe')
+    (new-object net.webclient).DownloadFile('https://dotnetcli.blob.core.windows.net/dotnet/Sdk/master/dotnet-dev-win-x64.latest.exe','core.exe')
     
     core.exe /install /quiet /norestart
     
