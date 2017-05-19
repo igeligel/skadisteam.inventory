@@ -1,3 +1,7 @@
+cd .\src\skadisteam.inventory\ 
+
+exec { & dotnet restore }
+
 cd ..\skadisteam.inventory.test\
 
 dotnet restore
