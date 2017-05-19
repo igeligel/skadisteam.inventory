@@ -6,7 +6,6 @@
     <NeutralLanguage>en-US</NeutralLanguage>
     <VersionPrefix>0.1.0-beta</VersionPrefix>
     <Authors>Kevin Peters</Authors>
-    <TargetFramework>netstandard1.6</TargetFramework>
     <AssemblyName>skadisteam.inventory</AssemblyName>
     <PackageId>skadisteam.inventory</PackageId>
     <PackageTags>steam;inventory;csgo;tf2;core;skadi</PackageTags>
