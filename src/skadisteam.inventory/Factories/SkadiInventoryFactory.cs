@@ -120,6 +120,10 @@ namespace skadisteam.inventory.Factories
                     Rwgrsn = rootInventory.Rwgrsn,
                     Items = new List<Models.SkadiItemInventory.SkadiItem>()
                 };
+            if (rootInventory.Assets == null)
+            {
+                return skadiItemInventory;
+            }
             foreach (var rootInventoryAsset in rootInventory.Assets)
             {
                 var descriptionForItem =

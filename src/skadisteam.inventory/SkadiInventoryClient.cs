@@ -87,6 +87,17 @@ namespace skadisteam.inventory
             return skadiInventory;
         }
 
+        public static Models.SkadiItemInventory.SkadiItemInventory
+            ConvertInventoryItems(string inventoryResponse)
+        {
+            var inventory =
+                JsonConvert
+                    .DeserializeObject<Models.Json.LoadItemInventory.
+                        RootInventory>(inventoryResponse);
+            var skadiInventory = SkadiInventoryFactory.CreateNew(inventory);
+            return skadiInventory;
+        }
+
         /// <summary>
         /// Method to request the inventory of a private accessible inventory.
         /// </summary>
